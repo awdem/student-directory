@@ -10,19 +10,11 @@ def input_students
   end
 end 
 
-def print_header
-  puts "The students of Villains Academy"
-  puts "-------------"
-end
-
-def print_students_list
-  @students.each do |student|
-    puts "#{student[:name]} (#{student[:cohort]} cohort)"
+def interactive_menu
+  loop do
+    print_menu
+    process(gets.chomp)
   end
-end
-
-def print_footer
-  puts "Overall, we have #{@students.count} great students"
 end
 
 def print_menu
@@ -50,11 +42,19 @@ def process(selection)
   end
 end
 
-def interactive_menu
-  loop do
-    print_menu
-    process(gets.chomp)
+def print_header
+  puts "The students of Villains Academy"
+  puts "-------------"
+end
+
+def print_students_list
+  @students.each do |student|
+    puts "#{student[:name]} (#{student[:cohort]} cohort)"
   end
+end
+
+def print_footer
+  puts "Overall, we have #{@students.count} great students"
 end
 
 interactive_menu
